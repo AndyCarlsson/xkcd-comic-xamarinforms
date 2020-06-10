@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="xkcd_comics.Views.ComicPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Label Text="Title"
+                       Grid.Row="1"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Label Text="0001"
+                       Grid.Row="2"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Image Source="icon.png"
+                       Grid.Row="3"
+                       HorizontalOptions="Center"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
