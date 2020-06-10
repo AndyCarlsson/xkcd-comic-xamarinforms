@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using xkcd_comics.ViewModels;
 
 namespace xkcd_comics.Views
 {
@@ -15,6 +16,7 @@ namespace xkcd_comics.Views
         public ComicPage()
         {
             InitializeComponent();
+            BindingContext = new ComicPageViewModel();
         }
     }
 }
