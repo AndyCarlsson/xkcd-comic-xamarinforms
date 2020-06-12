@@ -14,6 +14,8 @@ namespace xkcd_comics.ViewModels
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
+        public IDataService<Comic> DataService => DependencyService.Get<IDataService<Comic>>();
+
         bool isBusy = false;
         public bool IsBusy
         {

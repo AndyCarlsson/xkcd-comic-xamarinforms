@@ -4,19 +4,19 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="xkcd_comics.Views.ComicPage">
+             x:Class="xkcd_comics.Views.ComicPage"
+             Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BindingContext="{Binding Comic}">
             <Grid>
-                <Label Text="Title"
+                <Label Text="{Binding Title}"
                        Grid.Row="1"
                        HorizontalOptions="CenterAndExpand"/>
-                <Label Text="0001"
+                <Label Text="{Binding Num}"
                        Grid.Row="2"
                        HorizontalOptions="CenterAndExpand"/>
-                <Image Source="icon.png"
-                       Grid.Row="3"
-                       HorizontalOptions="Center"/>
+                <Image Source="{Binding Img}"
+                       Grid.Row="3"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

@@ -10,20 +10,19 @@ namespace xkcd_comics.Services
 {
     class DataService : IDataService<Comic>
     {
-        public Task<Comic> GetItemAsync(string id)
+        public Comic GetComicAsync(string id)
         {
-            string url = $"https://xkcd.com/{id}/info.0.json";
-            
+            string url = $"https://xkcd.com/{id}/info.0.json";         
             var client = new HttpClient();
 
             var response = client.GetAsync(url);
             var result = response.Result;
 
-            string comicString = result.Content.ReadAsStringAsync().Result;
+            string json = result.Content.ReadAsStringAsync().Result;
 
-            var comic = JsonConvert.DeserializeObject<Comic>(comicString);
+            var comic = JsonConvert.DeserializeObject<Comic>(json);
 
-            return Task.FromResult(comic);
+            return comic;
         }
     }
 }

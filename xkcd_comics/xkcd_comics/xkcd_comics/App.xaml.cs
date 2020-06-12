@@ -14,6 +14,7 @@ namespace xkcd_comics
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<DataService>();
             MainPage = new MainPage();
         }
 
