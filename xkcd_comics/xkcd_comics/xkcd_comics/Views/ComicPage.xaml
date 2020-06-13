@@ -7,17 +7,26 @@
              x:Class="xkcd_comics.Views.ComicPage"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Comic}">
-            <Grid>
-                <Label Text="{Binding Title}"
-                       Grid.Row="1"
-                       HorizontalOptions="CenterAndExpand"/>
-                <Label Text="{Binding Num}"
-                       Grid.Row="2"
-                       HorizontalOptions="CenterAndExpand"/>
-                <Image Source="{Binding Img}"
-                       Grid.Row="3"/>
-            </Grid>
-        </StackLayout>
+        <Grid BindingContext="{Binding Comic}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="75*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding Title}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   Grid.Row="0"/>
+            <Label Text="{Binding Num, StringFormat='#{0}'}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="20"
+                   Grid.Row="1"/>
+            <Image Source="{Binding Img}"
+                   Aspect="AspectFit"
+                   Grid.Row="2"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

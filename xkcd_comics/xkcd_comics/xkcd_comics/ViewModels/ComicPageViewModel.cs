@@ -10,10 +10,10 @@ namespace xkcd_comics.ViewModels
         public Comic Comic { get; set; }
         public ComicPageViewModel()
         {
-            Title = "xkcd Comic";
+            Title = "Comic";
             Comic = new Comic();
 
-            Comic = DataService.GetComicAsync("520");
+            Comic = DataService.GetComicAsync("341");
         }
 
     }
