@@ -5,7 +5,8 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:views="clr-namespace:xkcd_comics.Views"
-            x:Class="xkcd_comics.Views.MainPage">
+            x:Class="xkcd_comics.Views.MainPage"
+            NavigationPage.HasNavigationBar="False">
 
     <TabbedPage.Children>
         <NavigationPage Title="Comics">
@@ -20,9 +21,9 @@
             
         </NavigationPage>
         
-        <NavigationPage Title="About">
+        <NavigationPage Title="Favorites">
             <x:Arguments>
-                <views:AboutPage />
+                <views:FavoritesPage />
             </x:Arguments>
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">

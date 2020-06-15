@@ -6,14 +6,31 @@
              mc:Ignorable="d"
              x:Class="xkcd_comics.Views.FavoritesPage">
     <ContentPage.Content>
-        <ListView>
+        <ListView ItemsSource="{Binding FavList}"
+                  RowHeight="100">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Id"/>
-                        <Label Text="Title"/>
-                        <Label Text="Description"/>
-                    </StackLayout>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="15*"/>
+                                <ColumnDefinition Width="35*"/>
+                                <ColumnDefinition Width="50*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Num, StringFormat='#{0}'}"
+                                   Grid.Column="0"
+                                   VerticalOptions="Center"
+                                   FontSize="15"/>
+                            <Label Text="{Binding Title}"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   FontSize="20"/>
+                            <Image Source="{Binding Img}"
+                                   Grid.Column="2"
+                                   Aspect="AspectFit"
+                                   VerticalOptions="CenterAndExpand"/>
+                        </Grid>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

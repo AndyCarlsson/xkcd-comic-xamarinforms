@@ -48,11 +48,11 @@ namespace xkcd_comics.ViewModels
                 connection.Insert(Comic);
             }
         }
-
         private void GetRandomComic()
         {
             ComicNo = rnd.Next(1, comicMaxNo);
             Comic = DataService.GetComicAsync(ComicNo);
         }
+
     }
 }

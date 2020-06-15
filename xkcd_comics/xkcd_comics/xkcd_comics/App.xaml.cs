@@ -19,11 +19,10 @@ namespace xkcd_comics
         public App(string filePath)
         {
             InitializeComponent();
+            FilePath = filePath;
 
             DependencyService.Register<DataService>();
             MainPage = new MainPage();
-
-            FilePath = filePath;
         }
 
         protected override void OnStart()
