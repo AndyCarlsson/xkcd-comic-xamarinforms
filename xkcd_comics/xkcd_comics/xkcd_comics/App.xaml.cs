@@ -13,7 +13,6 @@ namespace xkcd_comics
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             DependencyService.Register<DataService>();
             MainPage = new MainPage();
         }
@@ -21,7 +20,6 @@ namespace xkcd_comics
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             DependencyService.Register<DataService>();
             MainPage = new MainPage();
 

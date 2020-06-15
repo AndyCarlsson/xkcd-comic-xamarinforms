@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
 using xkcd_comics.Models;
 using xkcd_comics.Services;
 
@@ -12,8 +10,6 @@ namespace xkcd_comics.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
-
         public IDataService<Comic> DataService => DependencyService.Get<IDataService<Comic>>();
 
         bool isBusy = false;

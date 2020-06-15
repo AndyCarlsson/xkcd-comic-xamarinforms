@@ -45,7 +45,7 @@ namespace xkcd_comics.ViewModels
             using(SQLiteConnection connection = new SQLiteConnection(App.FilePath))
             {
                 connection.CreateTable<Comic>();
-                int rowsAdded = connection.Insert(Comic);
+                connection.Insert(Comic);
             }
         }
 
