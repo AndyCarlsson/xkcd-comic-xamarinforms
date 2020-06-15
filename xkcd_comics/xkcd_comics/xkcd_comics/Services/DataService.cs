@@ -10,7 +10,7 @@ namespace xkcd_comics.Services
 {
     class DataService : IDataService<Comic>
     {
-        public Comic GetComicAsync(string id)
+        public Comic GetComicAsync(int id)
         {
             string url = $"https://xkcd.com/{id}/info.0.json";         
             var client = new HttpClient();

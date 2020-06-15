@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
@@ -9,20 +10,49 @@ namespace xkcd_comics.ViewModels
 {
     class ComicPageViewModel : BaseViewModel
     {
-        public Comic Comic { get; set; }
+        Random rnd = new Random();
+      
+        public int ComicNo { get; set; }
+        private int comicMaxNo = 2319;
+
+        private Comic _comic;
+        public Comic Comic 
+        {
+            get { return _comic; }
+            set
+            {
+                _comic = value;
+                OnPropertyChanged("Comic");
+            }
+        }
         public ICommand GetRandomComicCommand { get; set; }
+        public ICommand SaveToFavoritesCommand { get; set; }
+
         public ComicPageViewModel()
         {
+            ComicNo = rnd.Next(1, comicMaxNo);
+
             Title = "Comic";
             Comic = new Comic();
-            Comic = DataService.GetComicAsync("678");
+            Comic = DataService.GetComicAsync(ComicNo);
 
             GetRandomComicCommand = new Command(GetRandomComic);
+            SaveToFavoritesCommand = new Command(SaveToFavorites);
+        }
+
+        private void SaveToFavorites()
+        {
+            using(SQLiteConnection connection = new SQLiteConnection(App.FilePath))
+            {
+                connection.CreateTable<Comic>();
+                int rowsAdded = connection.Insert(Comic);
+            }
         }
 
         private void GetRandomComic()
         {
-            Comic = DataService.GetComicAsync("100");
+            ComicNo = rnd.Next(1, comicMaxNo);
+            Comic = DataService.GetComicAsync(ComicNo);
         }
     }
 }

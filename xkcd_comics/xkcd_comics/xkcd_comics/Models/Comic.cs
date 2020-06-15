@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,8 @@ namespace xkcd_comics.Models
 {
     public class Comic
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         public string Month { get; set; }
         public int Num { get; set; }
         public string Link { get; set; }

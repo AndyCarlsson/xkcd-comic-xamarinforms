@@ -8,6 +8,6 @@ namespace xkcd_comics.Services
 {
     public interface IDataService<T>
     {
-        Comic GetComicAsync(string id);
+        Comic GetComicAsync(int id);
     }
 }

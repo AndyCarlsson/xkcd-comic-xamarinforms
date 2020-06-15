@@ -7,41 +7,44 @@
              x:Class="xkcd_comics.Views.ComicPage"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <Grid>
+        <StackLayout>
+            <Grid BindingContext="{Binding Comic}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="5*"/>
-                <RowDefinition Height="10*"/>
-                <RowDefinition Height="75*"/>
+                <RowDefinition Height="85*"/>
             </Grid.RowDefinitions>
-            <Label Text="{Binding Comic.Title}"
+            <Label Text="{Binding Title}"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    FontSize="28"
                    FontAttributes="Bold"
                    Grid.Row="0"
                    Grid.ColumnSpan="2"/>
-            <Label Text="{Binding Comic.Num, StringFormat='#{0}'}"
+            <Label Text="{Binding Num, StringFormat='#{0}'}"
                    HorizontalOptions="Center"
                    VerticalOptions="Start"
                    FontSize="20"
                    Grid.Row="1"
                    Grid.ColumnSpan="2"/>
-            <Button Text="Give me more"
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Command="{Binding GetRandomComicCommand}"/>
-            <Button Text="Add to favorites"
-                    Grid.Row="2"
-                    Grid.Column="1"/>
-            <ImageButton Source="{Binding Comic.Img}"
+            <ImageButton Source="{Binding Img}"
                          Aspect="AspectFit"
-                         Grid.Row="3"
+                         Grid.Row="2"
                          Grid.ColumnSpan="2"
                          BackgroundColor="Transparent"/>
-            <!--<Image Source="{Binding Img}"
-                   Aspect="AspectFit"
-                   Grid.Row="2"/>-->
-        </Grid>
+            </Grid>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+                <Button Text="Give me more"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Command="{Binding GetRandomComicCommand}"/>
+                <Button Text="Add to favorites"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Command="{Binding SaveToFavoritesCommand}"/>
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
