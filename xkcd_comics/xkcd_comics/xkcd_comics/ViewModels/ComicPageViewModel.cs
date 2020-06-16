@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using xkcd_comics.Models;
+using xkcd_comics.Services;
 
 namespace xkcd_comics.ViewModels
 {
@@ -47,6 +48,8 @@ namespace xkcd_comics.ViewModels
                 connection.CreateTable<Comic>();
                 connection.Insert(Comic);
             }
+
+            DependencyService.Get<IToastMessage>().LongAlert("Added to favorties");
         }
         private void GetRandomComic()
         {

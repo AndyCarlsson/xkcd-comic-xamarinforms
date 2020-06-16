@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using xkcd_comics.Models;
 
@@ -23,6 +24,7 @@ namespace xkcd_comics.ViewModels
         public FavoritesPageViewModel()
         {
             FavList = new ObservableCollection<Comic>();
+            Title = "Favorites";
         }
 
         public void GetComicsFromDb()
@@ -34,8 +36,9 @@ namespace xkcd_comics.ViewModels
 
                 foreach (var comic in list)
                 {
-                    FavList.Add(comic);
+                    FavList.Insert(0, comic);
                 }
+               
             }
         }
     }

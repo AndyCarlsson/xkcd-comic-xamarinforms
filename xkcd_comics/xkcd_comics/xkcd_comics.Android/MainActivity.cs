@@ -7,6 +7,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using System.IO;
+using Xamarin.Forms;
+using xkcd_comics.Droid.AndroidServices;
 
 namespace xkcd_comics.Droid
 {
@@ -22,6 +24,9 @@ namespace xkcd_comics.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+
+            DependencyService.Register<AndroidToastMessage>();
 
             string fileName = "comic_db.db3";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
