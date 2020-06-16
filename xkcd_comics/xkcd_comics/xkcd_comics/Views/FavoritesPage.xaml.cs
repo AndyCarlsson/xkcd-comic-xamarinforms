@@ -13,10 +13,18 @@ namespace xkcd_comics.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FavoritesPage : ContentPage
     {
+        FavoritesPageViewModel _viewModel;
         public FavoritesPage()
         {
             InitializeComponent();
-            BindingContext = new FavoritesPageViewModel();
+            _viewModel = new FavoritesPageViewModel();
+            BindingContext = _viewModel;
+        }
+
+        protected override void OnAppearing()
+        {
+            _viewModel.FavList.Clear();
+            _viewModel.GetComicsFromDb();
         }
     }
 }

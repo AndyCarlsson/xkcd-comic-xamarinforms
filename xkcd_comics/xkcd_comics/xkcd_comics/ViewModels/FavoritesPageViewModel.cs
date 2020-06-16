@@ -23,10 +23,9 @@ namespace xkcd_comics.ViewModels
         public FavoritesPageViewModel()
         {
             FavList = new ObservableCollection<Comic>();
-            getComicsFromDb();
         }
 
-        public void getComicsFromDb()
+        public void GetComicsFromDb()
         {
             using(SQLiteConnection connection = new SQLiteConnection(App.FilePath))
             {
