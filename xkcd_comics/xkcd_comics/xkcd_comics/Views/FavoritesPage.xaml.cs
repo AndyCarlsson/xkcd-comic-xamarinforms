@@ -26,5 +26,9 @@ namespace xkcd_comics.Views
             _viewModel.FavList.Clear();
             _viewModel.GetComicsFromDb();
         }
+
+        private void FavListTapped_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+        }
     }
 }

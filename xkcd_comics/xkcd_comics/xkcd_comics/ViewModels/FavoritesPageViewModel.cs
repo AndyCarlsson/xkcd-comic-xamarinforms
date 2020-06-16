@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 using xkcd_comics.Models;
 
 namespace xkcd_comics.ViewModels
@@ -20,6 +22,7 @@ namespace xkcd_comics.ViewModels
                 OnPropertyChanged("FavList");
             }
         }
+        public ICommand ListItemTappedCommand { get; }
 
         public FavoritesPageViewModel()
         {

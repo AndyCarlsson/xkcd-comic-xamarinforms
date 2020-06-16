@@ -5,9 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="xkcd_comics.Views.FavoritesPage">
+
     <ContentPage.Content>
         <ListView ItemsSource="{Binding FavList}"
-                  RowHeight="100">
+                  ItemTapped="FavListTapped_ItemTapped"
+                  RowHeight="100"
+                  x:Name="FavListTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

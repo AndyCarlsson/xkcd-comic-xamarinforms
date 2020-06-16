@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30128.36
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xkcd_comics.Android", "xkcd_comics\xkcd_comics.Android\xkcd_comics.Android.csproj", "{6CC8F263-3396-434A-9362-25B5F154CDEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xkcd_comics", "xkcd_comics\xkcd_comics\xkcd_comics.csproj", "{15EFB93F-9BAD-47DD-8CF5-2B8E66CBA4AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xkcd_comics", "xkcd_comics\xkcd_comics\xkcd_comics.csproj", "{15EFB93F-9BAD-47DD-8CF5-2B8E66CBA4AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
