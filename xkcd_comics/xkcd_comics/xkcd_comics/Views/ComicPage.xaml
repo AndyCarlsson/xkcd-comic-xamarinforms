@@ -8,36 +8,54 @@
              NavigationPage.HasNavigationBar="False"
              BindingContext="{StaticResource ComicPageViewModel}">
     <ContentPage.Content>
-        <StackLayout>
-            <Grid BindingContext="{Binding Comic}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="10*"/>
-                    <RowDefinition Height="5*"/>
-                    <RowDefinition Height="85*"/>
-                </Grid.RowDefinitions>
-                <Label Text="{Binding Title}"
+        <SwipeView BackgroundColor="#313639">
+                <SwipeView.TopItems>
+                    <SwipeItems Mode="Execute">
+                        <SwipeItem Text="Get new comic!"
+                                   CommandParameter="{Binding .}"
+                                   BackgroundColor="LightGreen"
+                                   Command="{Binding GetRandomComicCommand}"/>
+                    </SwipeItems>
+                </SwipeView.TopItems>
+                <SwipeView.BottomItems>
+                    <SwipeItems Mode="Execute">
+                        <SwipeItem Text="Save to favorites!"
+                                   CommandParameter="{Binding .}"
+                                   BackgroundColor="LightBlue"
+                                   Command="{Binding SaveToFavoritesCommand}"/>
+                    </SwipeItems>
+                </SwipeView.BottomItems>
+            
+                <Grid BindingContext="{Binding Comic}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="85*"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding Title}"
                        HorizontalOptions="Center"
                        VerticalOptions="End"
                        FontSize="28"
                        FontAttributes="Bold"
                        Grid.Row="0"
                        Grid.ColumnSpan="2"/>
-                <Label Text="{Binding Num, StringFormat='#{0}'}"
+                    <Label Text="{Binding Num, StringFormat='#{0}'}"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        FontSize="20"
                        Grid.Row="1"
                        Grid.ColumnSpan="2"/>
-                <ImageButton x:Name="ComicClicked"
+                    <ImageButton x:Name="ComicClicked"
                              Source="{Binding Img}"
                              Clicked="ComicClicked_Clicked"
                              Aspect="AspectFit"
                              Grid.Row="2"
                              Grid.ColumnSpan="2"
                              BackgroundColor="Transparent"/>
-            </Grid>
-
-            <StackLayout Orientation="Horizontal"
+                </Grid>
+            </SwipeView>
+            
+            <!--<StackLayout Orientation="Horizontal"
                          HorizontalOptions="CenterAndExpand">
                 <Button ImageSource="baseline_refresh_green_24dp.png"
                         Text="Give me more"
@@ -49,7 +67,6 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         Command="{Binding SaveToFavoritesCommand}"/>
-            </StackLayout>
-        </StackLayout>
+            </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>
