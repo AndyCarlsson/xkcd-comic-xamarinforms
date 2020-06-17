@@ -26,17 +26,19 @@
                                    LineBreakMode="TailTruncation"
                                    FontAttributes="Bold"
                                    VerticalOptions="End"
+                                   Margin="10,0,0,0"
                                    FontSize="18"/>
                             <Label Text="{Binding Num, StringFormat='#{0}'}"
                                    Grid.Column="0"
                                    Grid.Row="1"
                                    VerticalOptions="Start"
+                                   Margin="10,0,0,0"                                   
                                    FontSize="15"/>
                             <Image Source="{Binding Img}"
                                    Grid.Column="1"
                                    Grid.RowSpan="2"
                                    Aspect="AspectFit"
-                                   Margin="10"
+                                   Margin="15"
                                    VerticalOptions="CenterAndExpand"/>
                         </Grid>
                     </ViewCell>

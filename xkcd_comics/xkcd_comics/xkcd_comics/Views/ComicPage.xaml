@@ -17,14 +17,14 @@
                 </Grid.RowDefinitions>
                 <Label Text="{Binding Title}"
                        HorizontalOptions="Center"
-                       VerticalOptions="Center"
+                       VerticalOptions="End"
                        FontSize="28"
                        FontAttributes="Bold"
                        Grid.Row="0"
                        Grid.ColumnSpan="2"/>
                 <Label Text="{Binding Num, StringFormat='#{0}'}"
                        HorizontalOptions="Center"
-                       VerticalOptions="Start"
+                       VerticalOptions="Center"
                        FontSize="20"
                        Grid.Row="1"
                        Grid.ColumnSpan="2"/>
@@ -36,15 +36,14 @@
             </Grid>
 
             <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="Center">
-                <Button Text="Give me more"
-                        BackgroundColor="LightGreen"
+                         HorizontalOptions="CenterAndExpand">
+                <Button ImageSource="baseline_refresh_green_24dp.png"
+                        Text="Give me more"
                         Grid.Row="2"
                         Grid.Column="0"
                         Command="{Binding GetRandomComicCommand}"/>
-                <Button ImageSource="outline_star_white_18dp.png"
+                <Button ImageSource="baseline_star_yellow_24dp.png"
                         Text="Add to favorites"
-                        BackgroundColor="LightCoral"
                         Grid.Row="2"
                         Grid.Column="1"
                         Command="{Binding SaveToFavoritesCommand}"/>

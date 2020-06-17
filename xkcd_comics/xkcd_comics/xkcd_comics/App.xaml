@@ -23,8 +23,8 @@
             </Style>
 
             <Style TargetType="Button">
-                <Setter Property="CornerRadius" Value="10"/>
-                <Setter Property="TextColor" Value="#313639"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="#f8f8ff"/>
             </Style>
 
             <Style TargetType="Label">
