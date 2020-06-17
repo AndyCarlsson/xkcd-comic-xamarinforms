@@ -24,5 +24,20 @@ namespace xkcd_comics.Services
 
             return comic;
         }
+
+        public Comic GetLatesComicAsync()
+        {
+            string url = $"https://xkcd.com/info.0.json";
+            var client = new HttpClient();
+
+            var response = client.GetAsync(url);
+            var result = response.Result;
+
+            string json = result.Content.ReadAsStringAsync().Result;
+
+            var comic = JsonConvert.DeserializeObject<Comic>(json);
+
+            return comic;
+        }
     }
 }

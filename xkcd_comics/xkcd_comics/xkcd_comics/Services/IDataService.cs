@@ -9,5 +9,6 @@ namespace xkcd_comics.Services
     public interface IDataService<T>
     {
         Comic GetComicAsync(int id);
+        Comic GetLatesComicAsync();
     }
 }

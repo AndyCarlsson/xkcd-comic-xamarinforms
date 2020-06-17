@@ -12,9 +12,18 @@ namespace xkcd_comics.ViewModels
     class ComicPageViewModel : BaseViewModel
     {
         Random rnd = new Random();
-      
+        private int _comicMaxNo;
+
         public int ComicNo { get; set; }
-        private int comicMaxNo = 2319;
+        public int ComicMaxNo 
+        {
+            get { return _comicMaxNo; }
+            set
+            {
+                _comicMaxNo = value;
+                OnPropertyChanged("ComicMaxNo");
+            }
+        }
 
         private Comic _comic;
         public Comic Comic 
@@ -31,9 +40,11 @@ namespace xkcd_comics.ViewModels
 
         public ComicPageViewModel()
         {
-            if(Comic == null)
+            _comicMaxNo = DataService.GetLatesComicAsync().Num;
+
+            if (Comic == null)
             {
-                ComicNo = rnd.Next(1, comicMaxNo);
+                ComicNo = rnd.Next(1, ComicMaxNo);
                 Comic = new Comic();
                 Comic = DataService.GetComicAsync(ComicNo);
             }
@@ -54,7 +65,7 @@ namespace xkcd_comics.ViewModels
         }
         private void GetRandomComic()
         {
-            ComicNo = rnd.Next(1, comicMaxNo);
+            ComicNo = rnd.Next(1, ComicMaxNo);
             Comic = DataService.GetComicAsync(ComicNo);
         }
 
