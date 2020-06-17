@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using xkcd_comics.Models;
 using xkcd_comics.ViewModels;
 
 namespace xkcd_comics.Views
@@ -29,6 +30,7 @@ namespace xkcd_comics.Views
 
         private void FavListTapped_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            Navigation.PushAsync(new FavoriteDetailPage(e.Item as Comic));
         }
     }
 }

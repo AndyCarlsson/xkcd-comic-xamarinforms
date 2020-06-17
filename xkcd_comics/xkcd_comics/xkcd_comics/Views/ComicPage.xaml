@@ -5,42 +5,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="xkcd_comics.Views.ComicPage"
-             Title="{Binding Title}">
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
+
         <StackLayout>
             <Grid BindingContext="{Binding Comic}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="10*"/>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="85*"/>
-            </Grid.RowDefinitions>
-            <Label Text="{Binding Title}"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   FontSize="28"
-                   FontAttributes="Bold"
-                   Grid.Row="0"
-                   Grid.ColumnSpan="2"/>
-            <Label Text="{Binding Num, StringFormat='#{0}'}"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Start"
-                   FontSize="20"
-                   Grid.Row="1"
-                   Grid.ColumnSpan="2"/>
-            <ImageButton Source="{Binding Img}"
-                         Aspect="AspectFit"
-                         Grid.Row="2"
-                         Grid.ColumnSpan="2"
-                         BackgroundColor="Transparent"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="85*"/>
+                </Grid.RowDefinitions>
+                <Label Text="{Binding Title}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"/>
+                <Label Text="{Binding Num, StringFormat='#{0}'}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Start"
+                       FontSize="20"
+                       Grid.Row="1"
+                       Grid.ColumnSpan="2"/>
+                <ImageButton Source="{Binding Img}"
+                             Aspect="AspectFit"
+                             Grid.Row="2"
+                             Grid.ColumnSpan="2"
+                             BackgroundColor="Transparent"/>
             </Grid>
 
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center">
                 <Button Text="Give me more"
+                        BackgroundColor="LightGreen"
                         Grid.Row="2"
                         Grid.Column="0"
                         Command="{Binding GetRandomComicCommand}"/>
-                <Button Text="Add to favorites"
+                <Button ImageSource="outline_star_white_18dp.png"
+                        Text="Add to favorites"
+                        BackgroundColor="LightCoral"
                         Grid.Row="2"
                         Grid.Column="1"
                         Command="{Binding SaveToFavoritesCommand}"/>

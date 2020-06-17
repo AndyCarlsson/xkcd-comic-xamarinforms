@@ -6,7 +6,8 @@
             mc:Ignorable="d"
             xmlns:views="clr-namespace:xkcd_comics.Views"
             x:Class="xkcd_comics.Views.MainPage"
-            NavigationPage.HasNavigationBar="False">
+            NavigationPage.HasNavigationBar="False"
+            NavigationPage.HasBackButton="False">
 
     <TabbedPage.Children>
         <NavigationPage Title="Comics">

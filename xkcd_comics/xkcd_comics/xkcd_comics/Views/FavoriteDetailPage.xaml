@@ -4,12 +4,35 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="xkcd_comics.Views.FavoriteDetailPage">
+             x:Class="xkcd_comics.Views.FavoriteDetailPage"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Grid BindingContext="{Binding SelectedComic}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="85*"/>
+                </Grid.RowDefinitions>
+                <Label Text="{Binding Title}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"/>
+                <Label Text="{Binding Num, StringFormat='#{0}'}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   FontSize="20"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"/>
+                <ImageButton Source="{Binding Img}"
+                         Aspect="AspectFit"
+                         Grid.Row="2"
+                         Grid.ColumnSpan="2"
+                         BackgroundColor="Transparent"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

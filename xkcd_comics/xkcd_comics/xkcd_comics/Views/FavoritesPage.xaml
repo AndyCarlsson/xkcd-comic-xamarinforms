@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="xkcd_comics.Views.FavoritesPage">
+             x:Class="xkcd_comics.Views.FavoritesPage"
+             NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
         <ListView ItemsSource="{Binding FavList}"
@@ -16,21 +17,26 @@
                     <ViewCell>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="15*"/>
-                                <ColumnDefinition Width="35*"/>
+                                <ColumnDefinition Width="50*"/>
                                 <ColumnDefinition Width="50*"/>
                             </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Title}"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   LineBreakMode="TailTruncation"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="End"
+                                   FontSize="18"/>
                             <Label Text="{Binding Num, StringFormat='#{0}'}"
                                    Grid.Column="0"
-                                   VerticalOptions="Center"
+                                   Grid.Row="1"
+                                   VerticalOptions="Start"
                                    FontSize="15"/>
-                            <Label Text="{Binding Title}"
-                                   Grid.Column="1"
-                                   VerticalOptions="Center"
-                                   FontSize="20"/>
                             <Image Source="{Binding Img}"
-                                   Grid.Column="2"
+                                   Grid.Column="1"
+                                   Grid.RowSpan="2"
                                    Aspect="AspectFit"
+                                   Margin="10"
                                    VerticalOptions="CenterAndExpand"/>
                         </Grid>
                     </ViewCell>
