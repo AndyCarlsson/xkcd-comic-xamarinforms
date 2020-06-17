@@ -16,12 +16,12 @@ namespace xkcd_comics.Views
         public ComicPage()
         {
             InitializeComponent();
-            BindingContext = new ComicPageViewModel();
+            //BindingContext = new ComicPageViewModel();
         }
 
         private void ComicClicked_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ComicImagePage());
+            Navigation.PushModalAsync(new ComicImagePage());
         }
     }
 }

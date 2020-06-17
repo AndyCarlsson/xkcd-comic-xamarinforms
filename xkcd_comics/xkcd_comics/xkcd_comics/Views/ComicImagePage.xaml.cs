@@ -16,7 +16,7 @@ namespace xkcd_comics.Views
         public ComicImagePage()
         {
             InitializeComponent();
-            BindingContext = new ComicPageViewModel();
+            //BindingContext = new ComicPageViewModel();
         }
     }
 }

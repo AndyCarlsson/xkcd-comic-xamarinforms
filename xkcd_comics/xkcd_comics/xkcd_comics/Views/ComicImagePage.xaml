@@ -4,12 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="xkcd_comics.Views.ComicImagePage">
+             x:Class="xkcd_comics.Views.ComicImagePage"
+             BindingContext="{StaticResource ComicPageViewModel}"
+             BackgroundColor="#313639">
+    
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Comic}"
-                     VerticalOptions="StartAndExpand">
-            <Image Source="{Binding Img}"
-                   Aspect="AspectFit"/>
-        </StackLayout>
+        <Image Source="{Binding Comic.Img}"
+               Aspect="AspectFit"/>
     </ContentPage.Content>
 </ContentPage>
