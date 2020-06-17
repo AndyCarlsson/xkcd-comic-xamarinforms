@@ -27,7 +27,7 @@ namespace xkcd_comics.Views
 
         private void FavListTapped_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushAsync(new FavoriteDetailPage(e.Item as Comic));
+            Navigation.PushModalAsync(new FavoriteDetailPage(e.Item as Comic));
         }
 
         private void SwipeItem_Invoked(object sender, EventArgs e)

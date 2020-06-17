@@ -18,5 +18,10 @@ namespace xkcd_comics.Views
             InitializeComponent();
             //BindingContext = new ComicPageViewModel();
         }
+
+        private void ImageClicked_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
     }
 }

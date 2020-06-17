@@ -37,6 +37,8 @@ namespace xkcd_comics.ViewModels
         }
         public ICommand GetRandomComicCommand { get; set; }
         public ICommand SaveToFavoritesCommand { get; set; }
+        public ICommand ImageClickedCommand { get; set; }
+        public INavigation Navigation { get; set; }
 
         public ComicPageViewModel()
         {
@@ -51,6 +53,12 @@ namespace xkcd_comics.ViewModels
             
             GetRandomComicCommand = new Command(GetRandomComic);
             SaveToFavoritesCommand = new Command(SaveToFavorites);
+            ImageClickedCommand = new Command(ImageClicked);
+        }
+
+        private void ImageClicked(object obj)
+        {
+            
         }
 
         private void SaveToFavorites()

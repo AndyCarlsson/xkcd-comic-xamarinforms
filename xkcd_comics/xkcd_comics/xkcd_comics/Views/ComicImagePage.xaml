@@ -9,7 +9,10 @@
              BackgroundColor="#313639">
     
     <ContentPage.Content>
-        <Image Source="{Binding Comic.Img}"
-               Aspect="AspectFit"/>
+        <ImageButton    x:Name="ImageClicked"
+                        BackgroundColor="#313639"
+                        Source="{Binding Comic.Img}"
+                        Aspect="AspectFit"
+                        Clicked="ImageClicked_Clicked"/>
     </ContentPage.Content>
 </ContentPage>

@@ -15,11 +15,13 @@ namespace xkcd_comics.Views
     public partial class FavoriteDetailPage : ContentPage
     {
         FavoriteDetailPageViewModel _viewModel;
+
         public FavoriteDetailPage(Comic comic)
         {
             InitializeComponent();            
             _viewModel = new FavoriteDetailPageViewModel();
             _viewModel.SelectedComic = comic;
+            _viewModel.Navigation = Navigation;
             BindingContext = _viewModel;
         }
     }
