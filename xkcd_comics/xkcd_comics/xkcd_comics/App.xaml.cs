@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 using xkcd_comics.Services;
+using xkcd_comics.ViewModels;
 using xkcd_comics.Views;
 
 namespace xkcd_comics
@@ -23,6 +24,7 @@ namespace xkcd_comics
             FilePath = filePath;
 
             DependencyService.Register<DataService>();
+
             MainPage = new NavigationPage(new MainPage());
         }
 

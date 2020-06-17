@@ -31,12 +31,13 @@ namespace xkcd_comics.ViewModels
 
         public ComicPageViewModel()
         {
-            ComicNo = rnd.Next(1, comicMaxNo);
-
-            Title = "Comic";
-            Comic = new Comic();
-            Comic = DataService.GetComicAsync(ComicNo);
-
+            if(Comic == null)
+            {
+                ComicNo = rnd.Next(1, comicMaxNo);
+                Comic = new Comic();
+                Comic = DataService.GetComicAsync(ComicNo);
+            }
+            
             GetRandomComicCommand = new Command(GetRandomComic);
             SaveToFavoritesCommand = new Command(SaveToFavorites);
         }

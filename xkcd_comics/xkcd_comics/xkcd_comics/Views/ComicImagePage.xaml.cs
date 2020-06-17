@@ -11,17 +11,12 @@ using xkcd_comics.ViewModels;
 namespace xkcd_comics.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ComicPage : ContentPage
+    public partial class ComicImagePage : ContentPage
     {
-        public ComicPage()
+        public ComicImagePage()
         {
             InitializeComponent();
             BindingContext = new ComicPageViewModel();
-        }
-
-        private void ComicClicked_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new ComicImagePage());
         }
     }
 }

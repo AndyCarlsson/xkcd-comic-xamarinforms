@@ -28,7 +28,9 @@
                        FontSize="20"
                        Grid.Row="1"
                        Grid.ColumnSpan="2"/>
-                <ImageButton Source="{Binding Img}"
+                <ImageButton x:Name="ComicClicked"
+                             Source="{Binding Img}"
+                             Clicked="ComicClicked_Clicked"
                              Aspect="AspectFit"
                              Grid.Row="2"
                              Grid.ColumnSpan="2"
