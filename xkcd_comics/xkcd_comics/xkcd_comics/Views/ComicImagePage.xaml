@@ -12,7 +12,7 @@
         <ImageButton    x:Name="ImageClicked"
                         BackgroundColor="#313639"
                         Source="{Binding Comic.Img}"
-                        Aspect="AspectFit"
-                        Clicked="ImageClicked_Clicked"/>
+                        Command="{Binding ImageClickedCommand}"
+                        Aspect="AspectFit"/>
     </ContentPage.Content>
 </ContentPage>

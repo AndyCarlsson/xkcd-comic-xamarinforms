@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using xkcd_comics.Models;
 using xkcd_comics.ViewModels;
 
 namespace xkcd_comics.Views
@@ -13,15 +14,14 @@ namespace xkcd_comics.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ComicImagePage : ContentPage
     {
-        public ComicImagePage()
+        ComicImagePageViewModel _viewModel;
+        public ComicImagePage(object obj)
         {
             InitializeComponent();
-            //BindingContext = new ComicPageViewModel();
-        }
-
-        private void ImageClicked_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PopModalAsync();
+            _viewModel = new ComicImagePageViewModel();
+            _viewModel.Comic = obj as Comic;
+            _viewModel.Navigation = Navigation;
+            BindingContext = _viewModel;
         }
     }
 }

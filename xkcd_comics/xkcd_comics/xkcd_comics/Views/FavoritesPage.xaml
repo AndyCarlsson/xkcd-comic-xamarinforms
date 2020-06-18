@@ -5,11 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="xkcd_comics.Views.FavoritesPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             x:Name="FavoritesPageBinding">
 
     <ContentPage.Content>
         <ListView ItemsSource="{Binding FavList}"
-                  ItemTapped="FavListTapped_ItemTapped"
+                  SelectedItem="{Binding SelectedComic, Mode=TwoWay}"
                   RowHeight="100"
                   x:Name="FavListTapped">
             <ListView.ItemTemplate>
@@ -21,8 +22,8 @@
                                     <SwipeItems Mode="Reveal">
                                         <SwipeItem Text="Remove from favorites"
                                                    CommandParameter="{Binding .}"
-                                                   BackgroundColor="LightCoral"
-                                                   Invoked="SwipeItem_Invoked"/>
+                                                   Command="{Binding BindingContext.DeleteSwipeCommand, Source={x:Reference Name=FavoritesPageBinding}}"
+                                                   BackgroundColor="LightCoral"/>
                                     </SwipeItems>
                                 </SwipeView.TopItems>
                                 <Grid>

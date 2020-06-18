@@ -6,6 +6,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using xkcd_comics.Models;
 using xkcd_comics.Services;
+using xkcd_comics.Views;
 
 namespace xkcd_comics.ViewModels
 {
@@ -37,7 +38,7 @@ namespace xkcd_comics.ViewModels
         }
         public ICommand GetRandomComicCommand { get; set; }
         public ICommand SaveToFavoritesCommand { get; set; }
-        public ICommand ImageClickedCommand { get; set; }
+        public ICommand ComicClickedCommand { get; set; }
         public INavigation Navigation { get; set; }
 
         public ComicPageViewModel()
@@ -53,28 +54,40 @@ namespace xkcd_comics.ViewModels
             
             GetRandomComicCommand = new Command(GetRandomComic);
             SaveToFavoritesCommand = new Command(SaveToFavorites);
-            ImageClickedCommand = new Command(ImageClicked);
+            ComicClickedCommand = new Command(ComicClicked);
         }
 
-        private void ImageClicked(object obj)
+        private void ComicClicked(object obj)
         {
-            
+            Navigation.PushModalAsync(new ComicImagePage(obj as Comic));
         }
 
         private void SaveToFavorites()
         {
             using(SQLiteConnection connection = new SQLiteConnection(App.FilePath))
             {
-                connection.CreateTable<Comic>();
-                connection.Insert(Comic);
-            }
+                SQLiteCommand cmd = new SQLiteCommand(connection);
+                cmd.CommandText = $"Select count(*) FROM Comic WHERE Num = '{Comic.Num}'";
+                int count = Convert.ToInt32(cmd.ExecuteScalar<int>());
 
-            DependencyService.Get<IToastMessage>().LongAlert("Added to favorties");
+                if (count == 0)
+                {
+                    connection.CreateTable<Comic>();
+                    connection.Insert(Comic);
+                    DependencyService.Get<IToastMessage>().LongAlert("Added to favorties");
+                }
+                else
+                {
+                    DependencyService.Get<IToastMessage>().LongAlert("Already added to favorites");
+                }
+            }    
         }
+
         private void GetRandomComic()
         {
             ComicNo = rnd.Next(1, ComicMaxNo);
             Comic = DataService.GetComicAsync(ComicNo);
+            
         }
 
     }
