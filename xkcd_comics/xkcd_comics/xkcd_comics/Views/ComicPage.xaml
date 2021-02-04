@@ -10,22 +10,22 @@
     
     <ContentPage.Content>
         <SwipeView BackgroundColor="#313639">
-            <SwipeView.TopItems>
+            <SwipeView.LeftItems>
                 <SwipeItems Mode="Execute">
                     <SwipeItem Text="Get new comic!"
                                    CommandParameter="{Binding .}"
-                                   BackgroundColor="LightGreen"
+                                   BackgroundColor="LightYellow"
                                    Command="{Binding GetRandomComicCommand}"/>
                 </SwipeItems>
-            </SwipeView.TopItems>
-            <SwipeView.BottomItems>
+            </SwipeView.LeftItems>
+            <SwipeView.RightItems>
                 <SwipeItems Mode="Execute">
                     <SwipeItem Text="Save to favorites!"
                                    CommandParameter="{Binding .}"
-                                   BackgroundColor="LightYellow"
+                                   BackgroundColor="LightGreen"
                                    Command="{Binding SaveToFavoritesCommand}"/>
                 </SwipeItems>
-            </SwipeView.BottomItems>
+            </SwipeView.RightItems>
 
             <Grid BindingContext="{Binding Comic}">
                 <Grid.RowDefinitions>

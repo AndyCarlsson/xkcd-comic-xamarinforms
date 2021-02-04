@@ -54,13 +54,13 @@ namespace xkcd_comics.ViewModels
             
             GetRandomComicCommand = new Command(GetRandomComic);
             SaveToFavoritesCommand = new Command(SaveToFavorites);
-            ComicClickedCommand = new Command(ComicClicked);
+            //ComicClickedCommand = new Command(ComicClicked);
         }
 
-        private void ComicClicked(object obj)
-        {
-            Navigation.PushModalAsync(new ComicImagePage(obj as Comic));
-        }
+        //private void ComicClicked(object obj)
+        //{
+        //    Navigation.PushModalAsync(new ComicImagePage(obj as Comic));
+        //}
 
         private void SaveToFavorites()
         {
@@ -86,8 +86,7 @@ namespace xkcd_comics.ViewModels
         private void GetRandomComic()
         {
             ComicNo = rnd.Next(1, ComicMaxNo);
-            Comic = DataService.GetComicAsync(ComicNo);
-            
+            Comic = DataService.GetComicAsync(ComicNo);            
         }
 
     }
