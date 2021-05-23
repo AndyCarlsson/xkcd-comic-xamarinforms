@@ -1,4 +1,5 @@
 # xkcd comic generator
+<img src="images/phone_xkcd_start.png" alt="alt text"  height="700">
 
 ## Overview
 Mobile app that lets user show comics from xkcd and save their favorites.
